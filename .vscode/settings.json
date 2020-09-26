@@ -1,0 +1,19 @@
+{
+    "editor.formatOnSave": false,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "vue"
+    ],
+    "vetur.validation.template": false,
+    "vetur.validation.script": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    },
+    "liveServer.settings.root":"/packages/app-system/dist",
+    "files.exclude": {
+        "**/*/node_modules": true,
+        // "**/*/dist": true,
+        // "**/*/.nuxt": true
+    }
+}

@@ -1,0 +1,76 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+// Dialog
+.el-dialog {
+  border-radius: $radius;
+}
+
+// Message
+.el-message {
+  min-width: 0;
+}
+
+// @for $number from 0 to 33 {
+//   @include padding($number);
+//   @include margin($number);
+//   @include size($number);
+//   @include size($number);
+//   .fs-#{$number} {
+//     font-size: $number * 1px;
+//   }
+// }
+
+.color-primary {
+  color : $color-primary;
+}
+.color-success {
+  color : $color-success;
+}
+.color-warning {
+  color : $color-warning;
+}
+.color-danger {
+  color : $color-danger;
+}
+.color-info {
+  color : $color-info;
+}
+.color-text-primary {
+  color : $color-text-primary;
+}
+.color-text-regular {
+  color : $color-text-regular;
+}
+.color-text-secondary {
+  color : $color-text-secondary;
+}
+.color-text-placeholder {
+  color : $color-text-placeholder;
+}
+.border-color-base {
+  color : $border-color-base;
+}
+.border-color-light {
+  color : $border-color-light;
+}
+.border-color-lighter {
+  color : $border-color-lighter;
+}
+.border-color-extra-light {
+  color : $border-color-extra-light;
+}
+.color-white {
+  color : $color-white;
+}
+.color-black {
+  color : $color-black;
+}
+.background-color-base {
+  color : $background-color-base;
+}
+
+// el-main
+.el-main.bg-gray {
+  background-color: #f0f2f5;
+}
