@@ -115,7 +115,7 @@ export default {
     },
   },
   redirect: {
-    login: '/',
+    login: '/login',
     home: '/',
   },
   router: {
