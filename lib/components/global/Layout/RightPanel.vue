@@ -30,6 +30,7 @@
             placeholder="Size"
             @change="handleChangeSize"
           >
+            <el-option value="default" label="default"></el-option>
             <el-option value="mini" label="mini"></el-option>
             <el-option value="small" label="small"></el-option>
             <el-option value="medium" label="medium"></el-option>

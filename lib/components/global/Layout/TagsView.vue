@@ -1,9 +1,9 @@
 <template>
   <el-scrollbar :vertical="false" class="scroll-container">
     <el-tag
-      v-for="(route, index) in history"
+      v-for="(route, index) in tagViews"
       :key="route.path"
-      closable
+      :closable="!route.pined"
       size="small"
       :effect="current.path === route.path ? 'dark' : 'plain'"
       :type="current.path === route.path ? 'primary' : 'info'"
@@ -20,9 +20,23 @@
 <script>
 import { mapState } from 'vuex'
 import { REMOVE_ROUTE } from '@/store/router'
+import { routes } from '~/settings/router'
 export default {
   computed: {
     ...mapState('router', ['history', 'current']),
+    tagViews() {
+      const result = routes.filter((item) => item.pined)
+      this.history.forEach((h) => {
+        if (!result.find((item) => item.path === h.path)) {
+          if (h.pined) {
+            result.unshift(h)
+          } else {
+            result.push(h)
+          }
+        }
+      })
+      return result
+    },
   },
   methods: {
     handleClick(route) {
@@ -33,6 +47,7 @@ export default {
         return
       }
       this.$store.commit(`router/${REMOVE_ROUTE}`, route)
+      console.log(route)
       if (route.path === this.current.path) {
         if (this.history.findIndex((r) => r.path === route.pre.path) >= 0) {
           this.$router.back()
@@ -45,7 +60,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .scroll-container {
   box-shadow: 0 1px 2px rgba(0, 21, 41, 0.08);
   white-space: nowrap;
@@ -73,7 +88,7 @@ export default {
     color: #495060;
   }
 
-  .tag-view-item.el-tag.active {
+  .tags-view-item.el-tag.active {
     &::before {
       content: '';
       background: #fff;

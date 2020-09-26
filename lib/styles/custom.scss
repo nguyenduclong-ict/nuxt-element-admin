@@ -11,66 +11,96 @@
   min-width: 0;
 }
 
-// @for $number from 0 to 33 {
-//   @include padding($number);
-//   @include margin($number);
-//   @include size($number);
-//   @include size($number);
-//   .fs-#{$number} {
-//     font-size: $number * 1px;
-//   }
-// }
-
-.color-primary {
-  color : $color-primary;
-}
-.color-success {
-  color : $color-success;
-}
-.color-warning {
-  color : $color-warning;
-}
-.color-danger {
-  color : $color-danger;
-}
-.color-info {
-  color : $color-info;
-}
-.color-text-primary {
-  color : $color-text-primary;
-}
-.color-text-regular {
-  color : $color-text-regular;
-}
-.color-text-secondary {
-  color : $color-text-secondary;
-}
-.color-text-placeholder {
-  color : $color-text-placeholder;
-}
-.border-color-base {
-  color : $border-color-base;
-}
-.border-color-light {
-  color : $border-color-light;
-}
-.border-color-lighter {
-  color : $border-color-lighter;
-}
-.border-color-extra-light {
-  color : $border-color-extra-light;
-}
-.color-white {
-  color : $color-white;
-}
-.color-black {
-  color : $color-black;
-}
-.background-color-base {
-  color : $background-color-base;
-}
+// Color
+@include color(color-primary, $color-primary);
+@include color(color-success, $color-success);
+@include color(color-warning, $color-warning);
+@include color(color-danger, $color-danger);
+@include color(color-info, $color-info);
+@include color(color-text-primary, $color-text-primary);
+@include color(color-text-regular, $color-text-regular);
+@include color(color-text-secondary, $color-text-secondary);
+@include color(color-text-placeholder, $color-text-placeholder);
+@include color(border-color-base, $border-color-base);
+@include color(border-color-light, $border-color-light);
+@include color(border-color-lighter, $border-color-lighter);
+@include color(border-color-extra-light, $border-color-extra-light);
+@include color(color-white, $color-white);
+@include color(color-black, $color-black);
+@include color(background-color-base, $background-color-base);
 
 // el-main
 .el-main.bg-gray {
   background-color: #f0f2f5;
+}
+
+// Typography
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 400;
+  color: #1f2f3d;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: xxx-large;
+}
+
+h2 {
+  font-size: xx-large;
+}
+
+h3 {
+  font-size: x-large;
+}
+
+h4 {
+  font-size: large;
+}
+
+h5 {
+  font-size: medium;
+}
+
+@for $var from 0 to 5 {
+  @include size($var, 1rem);
+}
+
+.border {
+  border: solid 1px $border-color-base;
+}
+.border-top {
+  border-top: solid 1px $border-color-base;
+}
+.border-left {
+  border-left: solid 1px $border-color-base;
+}
+.border-right {
+  border-right: solid 1px $border-color-base;
+}
+.border-bottom {
+  border-bottom: solid 1px $border-color-base;
+}
+
+.radius-0 {
+  border-radius: 0px;
+}
+.radius-2 {
+  border-radius: 2px;
+}
+.radius-4 {
+  border-radius: 4px;
+}
+.round {
+  border-radius: 30px;
+}
+
+.shadow {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+}
+.shadow-light {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 }

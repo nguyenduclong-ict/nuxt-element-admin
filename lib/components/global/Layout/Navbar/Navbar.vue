@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="navbar-container"
-    :class="{ fixed: navbar.fixed, 'has-tagview': _hasTagView }"
-  >
+  <div class="navbar-container" :class="{ 'has-tagview': _hasTagView }">
     <div class="navbar">
       <hamburger
         id="hamburger-container"
@@ -24,9 +21,6 @@ import { isNil } from '~/lib/utils/lodash'
 export default {
   props: {
     hasTagView: Boolean,
-  },
-  data() {
-    return {}
   },
   computed: {
     ...mapState(['sidebar', 'navbar', 'app']),
@@ -61,16 +55,24 @@ export default {
 </script>
 
 <style lang="scss">
-.collapsed .navbar.fixed {
-  padding-left: $sidebarCollapsed;
+.fixed-header {
+  &.collapsed .navbar-container {
+    padding-left: $sidebarCollapsed;
+  }
+
+  .navbar-container {
+    padding-left: $sideBarWidth;
+  }
 }
 
-.navbar-container.fixed {
+.is-mobile .navbar-container {
+  padding-left: 0px !important;
+}
+
+.fixed-header .navbar-container {
   position: fixed;
   top: 0;
   left: 0;
-  padding-left: 210px;
-  padding-left: $sideBarWidth;
   z-index: 1000;
   width: 100%;
   background: #fff;

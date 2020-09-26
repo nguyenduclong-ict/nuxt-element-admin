@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie'
 import { vToggle } from '~/lib/utils/vuex'
 
 export const state = () => ({
@@ -14,7 +15,9 @@ export const getters = {
 export const TOGGLE_FIXED = 'TOGGLE_FIXED'
 
 export const mutations = {
-  [TOGGLE_FIXED]: vToggle('fixed'),
+  [TOGGLE_FIXED]: vToggle('fixed', (state) => {
+    Cookies.set('fixedHeader', state.fixed)
+  }),
 }
 
 export const actions = {}

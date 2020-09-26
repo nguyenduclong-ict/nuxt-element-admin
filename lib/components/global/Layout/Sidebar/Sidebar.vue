@@ -18,12 +18,14 @@
         ></sidebar-item>
       </el-menu>
     </el-scrollbar>
+    <div class="mask" @click="closeSidebar"></div>
   </div>
 </template>
 
 <script>
 import variables from '@/lib/utils/variables'
 import { mapState, mapGetters } from 'vuex'
+import { TOGGLE_SIDEBAR } from '~/store/sidebar'
 export default {
   props: {},
   computed: {
@@ -39,7 +41,10 @@ export default {
       return !this.sidebar.opened
     },
   },
+  methods: {
+    closeSidebar() {
+      this.$store.commit(`sidebar/${TOGGLE_SIDEBAR}`, false)
+    },
+  },
 }
 </script>
-
-<style lang="scss"></style>

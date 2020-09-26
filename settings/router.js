@@ -3,10 +3,11 @@ import { getSidebar, createRouter } from '~/lib/utils/router'
 export const routes = createRouter([
   {
     title: 'Dashboard',
-    path: '/',
+    path: '/dashboard',
     icon: 'dashboard',
     sidebar: true,
     root: true,
+    pined: true,
   },
   {
     title: 'Document',
@@ -41,7 +42,7 @@ export const routes = createRouter([
     sidebar: true,
     children: [
       {
-        title: 'Tinymce',
+        title: 'Basic Form',
         path: '/form/basic',
       },
     ],

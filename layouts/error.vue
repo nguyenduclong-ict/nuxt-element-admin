@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <el-main>
     <Page404 v-if="error.statusCode === 404" :message="error.message"></Page404>
     <Page401
       v-else-if="error.statusCode === 401"
       :message="error.message"
     ></Page401>
-  </div>
+  </el-main>
 </template>
 
 <script>

@@ -7,6 +7,7 @@ interface RouterItem {
   exact: boolean
   sidebar: boolean
   root: boolean
+  pined: boolean
   meta: {
     role: string | string[]
     permission: string | string[]

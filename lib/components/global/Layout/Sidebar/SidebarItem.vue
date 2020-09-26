@@ -1,6 +1,6 @@
 <template>
   <router-link v-if="!item.children" :to="item.path" class="menu-item">
-    <el-menu-item :index="item.path">
+    <el-menu-item :index="item.path" @click="handleClick">
       <sidebar-icon v-if="item.icon" :icon="item.icon" />
       <span slot="title">{{ item.title }}</span>
     </el-menu-item>
@@ -21,6 +21,7 @@
 
 <script>
 import fixiOSBug from './fixiOSBug'
+import { TOGGLE_SIDEBAR } from '~/store/sidebar'
 export default {
   name: 'SidebarItem',
   mixins: [fixiOSBug],
@@ -28,6 +29,13 @@ export default {
     item: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    handleClick() {
+      if (this.$store.state.app.device === 'mobile') {
+        this.$store.commit(`sidebar/${TOGGLE_SIDEBAR}`, false)
+      }
     },
   },
 }

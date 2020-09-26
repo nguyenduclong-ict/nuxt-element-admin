@@ -40,7 +40,7 @@ export default {
    */
   css: [
     'element-ui/lib/theme-chalk/index.css',
-    'bootstrap/dist/css/bootstrap-grid.min.css',
+    'element-ui/lib/theme-chalk/display.css',
     '@/lib/styles/index.scss',
     '~/assets/scss/main.scss',
   ],

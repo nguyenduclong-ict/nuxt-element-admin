@@ -2,7 +2,7 @@ import { sidebarItems } from '@/settings/router'
 import { vToggle } from '~/lib/utils/vuex'
 
 export const state = () => ({
-  opened: true,
+  opened: false,
   items: sidebarItems,
 })
 

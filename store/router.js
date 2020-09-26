@@ -19,6 +19,6 @@ export const mutations = {
     }
     state.current = value
   },
-  [REMOVE_ROUTE]: vRemove('history'),
+  [REMOVE_ROUTE]: vRemove('history', undefined, 'path'),
   [SET_CURRENT_ROUTE]: vSet('current'),
 }
