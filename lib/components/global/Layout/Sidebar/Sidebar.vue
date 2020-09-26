@@ -41,6 +41,7 @@ export default {
       return !this.sidebar.opened
     },
   },
+  mounted() {},
   methods: {
     closeSidebar() {
       this.$store.commit(`sidebar/${TOGGLE_SIDEBAR}`, false)

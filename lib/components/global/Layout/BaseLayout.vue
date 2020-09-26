@@ -10,7 +10,6 @@
       '--sidebar-collapsed': variables.sidebarCollapsed,
     }"
     class="layout-container"
-    style="opacity: 0"
   >
     <Sidebar style="height: 100vh" />
     <el-scrollbar class="main-container">
@@ -51,9 +50,6 @@ export default {
   },
   mounted() {
     this.navbarHeight = this.$refs.navbar.$el.clientHeight
-    setTimeout(() => {
-      this.$el.style.opacity = 1
-    }, 500) // sidebar animation
   },
   created() {
     this.$watch(
