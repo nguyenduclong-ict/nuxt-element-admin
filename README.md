@@ -3,6 +3,19 @@ Element UI with nuxtjs
 
 - [Demo](https://nguyenduclong-ict.github.io/nuxt-element-admin)
 
+## Init new project
+
+```bash
+$ git clone https://github.com/nguyenduclong-ict/nuxt-element-admin.git
+$ cd nuxt-element-admin
+$ rm -rf .git 
+$ git init
+
+# Update core
+# will update folder lib/ store/
+$ yarn update:core
+```
+
 ## Build Setup
 
 ```bash
