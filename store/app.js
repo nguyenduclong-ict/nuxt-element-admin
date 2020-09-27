@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie'
 import { vSet, vToggle } from '~/lib/utils/vuex'
 export const state = () => ({
-  device: 'desktop',
+  device: 'mobile',
   size: 'medium',
   tagsView: true,
 })
