@@ -3,7 +3,6 @@ Element UI with nuxtjs
 
 - [Demo](https://nguyenduclong-ict.github.io/nuxt-element-admin)
 
-
 ## Build Setup
 
 ```bash
