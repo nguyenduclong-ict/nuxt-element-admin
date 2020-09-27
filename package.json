@@ -13,7 +13,8 @@
     "gh:push": "gh-pages -d dist -t true",
     "gh:deploy": "yarn gh:generate && yarn gh:push",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint": "yarn lint:js"
+    "lint": "yarn lint:js",
+    "update:core": "git pull https://github.com/nguyenduclong-ict/nuxt-element-admin.git core --allow-unrelated-histories"
   },
   "dependencies": {
     "@nuxt/content": "^1.5.0",
