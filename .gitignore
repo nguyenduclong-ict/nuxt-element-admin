@@ -90,5 +90,3 @@ sw.*
 *.swp
 
 mock/upload/
-
-update-from-master.bash

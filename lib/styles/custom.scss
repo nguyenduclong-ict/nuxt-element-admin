@@ -6,6 +6,13 @@
   border-radius: $radius;
 }
 
+@media only screen and (max-width: 768px) {
+  /* For desktop: */
+  .el-dialog {
+    min-width: 98% !important;
+  }
+}
+
 // Message
 .el-message {
   min-width: 0;
@@ -29,12 +36,7 @@
 @include color(color-black, $color-black);
 @include color(background-color-base, $background-color-base);
 
-// el-main
-.el-main.bg-gray {
-  background-color: #f0f2f5;
-}
-
-// Typography
+// Typography =================================================
 h1,
 h2,
 h3,
@@ -65,10 +67,100 @@ h5 {
   font-size: medium;
 }
 
+.keep-all {
+  word-break: keep-all;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.inline {
+  display: inline;
+}
+
+// Size =================================================
+
 @for $var from 0 to 5 {
   @include size($var, 1rem);
 }
 
+.pd {
+  padding: 0.5rem;
+}
+
+.pb {
+  padding-bottom: 0.5rem;
+}
+
+.pt {
+  padding-top: 0.5rem;
+}
+
+.pl {
+  padding-left: 0.5rem;
+}
+
+.pr {
+  padding-right: 0.5rem;
+}
+
+.mg {
+  margin: 0.5rem;
+}
+
+.mb {
+  margin-bottom: 0.5rem;
+}
+
+.mt {
+  margin-top: 0.5rem;
+}
+
+.ml {
+  margin-left: 0.5rem;
+}
+
+.mr {
+  margin-right: 0.5rem;
+}
+
+.-mg {
+  margin: -0.5rem;
+}
+
+.-mb {
+  margin-bottom: -0.5rem;
+}
+
+.-mt {
+  margin-top: -0.5rem;
+}
+
+.-ml {
+  margin-left: -0.5rem;
+}
+
+.-mr {
+  margin-right: -0.5rem;
+}
+
+@each $var in 0 25 50 75 100 {
+  .w-#{$var} {
+    width: $var * 1%;
+  }
+  .h-#{$var} {
+    width: $var * 1%;
+  }
+  .w-#{$var}vw {
+    width: $var * 1vw;
+  }
+  .h-#{$var}vh {
+    width: $var * 1vh;
+  }
+}
+
+// Border =================================================
 .border {
   border: solid 1px $border-color-base;
 }
@@ -99,8 +191,111 @@ h5 {
 }
 
 .shadow {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
 }
 .shadow-light {
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+// Flex =================================================
+.flex-none {
+  flex: none;
+}
+
+.flex {
+  display: flex;
+
+  &.column {
+    flex-direction: column;
+  }
+
+  &.column-reverse {
+    flex-direction: column-reverse;
+  }
+
+  &.row {
+    flex-direction: row;
+  }
+
+  &.row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  &.justify-end {
+    justify-content: flex-end;
+  }
+
+  &.justify-start {
+    justify-content: flex-start;
+  }
+
+  &.justify-between {
+    justify-content: space-between;
+  }
+
+  &.justify-around {
+    justify-content: space-around;
+  }
+
+  &.justify-center {
+    justify-content: center;
+  }
+
+  // align
+  &.align-end {
+    align-items: flex-end;
+  }
+
+  &.align-start {
+    align-items: flex-start;
+  }
+
+  &.align-center {
+    align-items: center;
+  }
+}
+
+@for $var from 0 to 13 {
+  .flex-#{$var} {
+    flex: $var;
+  }
+}
+
+// input =================================================
+textarea.el-textarea__inner {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.el-avatar img {
+  width: 100%;
+  height: 100%;
+}
+
+// Page =================================================
+.page-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.5rem;
+
+  > * + * {
+    margin-left: 10px;
+  }
+
+}
+
+.el-main.bg-gray {
+  background-color: #f0f2f5;
+}
+
+// Table =================================================
+
+.el-table {
+  .cell {
+    word-break: keep-all;
+
+    .el-tag + .el-tag {
+      margin-left: 4px;
+      margin-top: 4px;
+    }
+  }
 }

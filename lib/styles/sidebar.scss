@@ -1,4 +1,4 @@
-.el-menu--vertical {
+.el-menu {
   a.menu-item {
     display: inline-block;
     width: 100%;
@@ -13,8 +13,16 @@
     margin-left: -2px;
   }
 
-  .nest-menu .el-submenu>.el-submenu__title,
-  .el-menu-item {
+  .el-menu-item i {
+    margin-right: 0px;
+  }
+
+  .nest-menu .el-submenu > .el-submenu__title,
+  .el-menu-item,
+  .el-menu-item:not(.is-active) i {
+    color: $menuText;
+    margin-right: 0px;
+
     &:hover {
       // you can use $subMenuHover
       background-color: $menuHover !important;
@@ -22,7 +30,7 @@
   }
 
   // the scroll bar appears when the subMenu is too long
-  >.el-menu--popup {
+  > .el-menu--popup {
     max-height: 100vh;
     overflow-y: auto;
 
@@ -54,7 +62,6 @@
   z-index: 1001;
   overflow: hidden;
   border-right: solid 1px #e6e6e6;
-
 
   .el-scrollbar {
     z-index: 1;
@@ -155,7 +162,7 @@
     .el-submenu {
       overflow: hidden;
 
-      &>.el-submenu__title {
+      & > .el-submenu__title {
         padding: 0 !important;
 
         .svg-icon {
@@ -174,8 +181,8 @@
 
     .el-menu--collapse {
       .el-submenu {
-        &>.el-submenu__title {
-          &>span {
+        & > .el-submenu__title {
+          & > span {
             height: 0;
             width: 0;
             overflow: hidden;

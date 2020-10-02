@@ -1,6 +1,11 @@
 <template>
   <div :id="id" class="tinymce-container">
-    <editor :api-key="apiKey" :init="init"></editor>
+    <editor
+      :value="value"
+      :api-key="apiKey"
+      :init="init"
+      @input="$emit('input', $event)"
+    ></editor>
     <el-button
       v-if="editor"
       class="upload-button"

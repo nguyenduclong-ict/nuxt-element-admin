@@ -2,8 +2,16 @@ import { SET_SIZE, TOGGLE_DEVICE, TOGGLE_TAGS_VIEW } from './app'
 import { TOGGLE_FIXED } from './navbar'
 import { TOGGLE_SIDEBAR } from './sidebar'
 import { isMobileAgent, parseBool, parseCookie } from '~/lib/utils'
+import { vSet } from '~/lib/utils/vuex'
 
-export const state = () => ({})
+export const state = () => ({
+  locations: [],
+})
+
+export const SET_LOCATIONS = 'SET_LOCATIONS'
+export const mutations = {
+  [SET_LOCATIONS]: vSet('locations'),
+}
 
 export const actions = {
   async login({ state }, data) {

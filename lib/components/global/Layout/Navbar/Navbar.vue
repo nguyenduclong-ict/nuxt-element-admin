@@ -17,24 +17,26 @@
 <script>
 import { mapState } from 'vuex'
 import { TOGGLE_SIDEBAR } from '@/store/sidebar'
-import { isNil } from '~/lib/utils/lodash'
+import { get, isNil } from '~/lib/utils/external/lodash'
 export default {
   props: {
-    hasTagView: Boolean,
+    hasTagsView: Boolean,
   },
   computed: {
     ...mapState(['sidebar', 'navbar', 'app']),
     _hasTagView() {
-      if (isNil(this.hasTagView)) {
-        return this.hasTagView
+      if (!isNil(this.hasTagsView)) {
+        return this.hasTagsView
       }
       return this.app.tagsView
     },
     rightMenu() {
       return [
-        { text: this.$auth.user.name },
-        { text: 'Profile', to: '/profile', divided: true },
-        { text: 'Google', to: 'https://google.com', target: '_blank' },
+        {
+          text:
+            get(this.$auth, 'user.info.name') ||
+            get(this.$auth, 'user.username'),
+        },
         { text: 'Logout', click: this.logout, divided: true },
       ]
     },
@@ -43,9 +45,9 @@ export default {
     toggleSideBar() {
       this.$store.commit('sidebar/' + TOGGLE_SIDEBAR)
     },
-    logout() {
-      console.log('logout')
-      this.$store.dispatch('logout')
+    async logout() {
+      await this.$store.dispatch('logout')
+      this.$router.go()
     },
     itemClick(handle) {
       if (handle) handle()

@@ -1,6 +1,6 @@
 <script>
 import { Radar, mixins } from 'vue-chartjs'
-import { defaultsDeep } from '~/lib/utils/lodash'
+import { defaultsDeep } from '~/lib/utils/external/lodash'
 const { reactiveProp } = mixins
 
 export default {
