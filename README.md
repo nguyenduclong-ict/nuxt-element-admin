@@ -1,5 +1,5 @@
 # nuxt-element-admin
-Element UI with nuxtjs
+Admin dashboard with nuxtjs + element ui, support ssr, reponsive mobile...
 
 - [Demo](https://nguyenduclong-ict.github.io/nuxt-element-admin)
 
