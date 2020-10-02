@@ -9,7 +9,7 @@ export default {
   meta: {},
   data() {
     return {
-      text: 'text',
+      text: '<h1>Hello</h1>',
     }
   },
 }
