@@ -1,13 +1,7 @@
 <template>
   <el-main>
     <h3>Upload</h3>
-    <upload
-      v-model="images"
-      size="64px"
-      type="object"
-      :limit="1"
-      :data="{ shopId: 1 }"
-    />
+    <upload v-model="images" size="64px" type="object" :data="{ shopId: 1 }" />
 
     <h3>Upload single</h3>
     <upload-single v-model="image" size="64px" type="string" />
@@ -24,7 +18,7 @@
 export default {
   data() {
     return {
-      images: [{ url: 'http://localhost:3001/about-01.jpg' }],
+      images: [],
       image: null,
       avatar: '',
     }

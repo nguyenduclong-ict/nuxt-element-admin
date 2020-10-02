@@ -113,10 +113,10 @@ export default {
         },
       },
     },
-  },
-  redirect: {
-    login: '/login',
-    home: '/',
+    redirect: {
+      login: '/login',
+      home: '/',
+    },
   },
   router: {
     middleware: ['auth'],

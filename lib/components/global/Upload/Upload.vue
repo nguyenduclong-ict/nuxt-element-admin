@@ -79,6 +79,7 @@ export default {
       isShowPreview: false,
       previewItem: null,
       uids: {},
+      queue: [],
     }
   },
   computed: {
@@ -132,23 +133,30 @@ export default {
       this.previewItem = file
       this.isShowPreview = true
     },
-    handleOnSuccess(response, file, fileList) {
-      if (this.type === 'object') {
-        file.url = response.url
-        this.value.push({
-          ...response,
-          url: response.url,
-          alt: response.alt,
-          title: response.title,
-          uid: file.uid,
-        })
-      } else {
-        file.url = response.url
-        this.uids[file.url] = file.uid
-        this.value.push(response.url)
+    handleOnSuccess(r, f, fileList) {
+      this.queue.push(f)
+      if (fileList.some((file) => file.status === 'uploading')) {
+        return
       }
-      this.$emit('add', file)
-      removeItem(fileList, file)
+      this.queue.forEach((file) => {
+        if (this.type === 'object') {
+          const { response } = file
+          file.url = this.value.push({
+            ...response,
+            url: response.url,
+            alt: response.alt,
+            title: response.title,
+            uid: file.uid,
+          })
+        } else {
+          const { response } = file
+          file.url = response.url
+          this.uids[file.url] = file.uid
+          this.value.push(response.url)
+        }
+        this.$emit('add', file)
+      })
+      this.queue = []
     },
     handleOnError(error, file, fileList) {
       console.log('uploadError', { error, file, fileList })

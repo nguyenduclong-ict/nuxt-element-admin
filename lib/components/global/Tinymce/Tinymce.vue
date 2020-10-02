@@ -14,7 +14,9 @@
       icon="el-icon-upload"
     ></el-button>
 
-    <el-dialog title="Upload Image" :visible.sync="showUpload"></el-dialog>
+    <el-dialog title="Upload Image" :visible.sync="showUpload">
+      <Dropzone />
+    </el-dialog>
   </div>
 </template>
 
