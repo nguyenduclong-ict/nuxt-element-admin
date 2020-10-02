@@ -160,11 +160,12 @@ h5 {
   }
 }
 
-.float-right {
+
+.float-right  {
   float: right !important;
 }
 
-.float-left {
+.float-left  {
   float: left !important;
 }
 
@@ -288,6 +289,7 @@ textarea.el-textarea__inner {
   > * + * {
     margin-left: 10px;
   }
+
 }
 
 .el-main.bg-gray {

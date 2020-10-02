@@ -57,13 +57,6 @@ export default {
       ]
     },
   },
-  mounted() {
-    this.isFullscreen = !!(
-      document.exitFullscreen ||
-      document.webkitExitFullscreen ||
-      document.msExitFullscreen
-    )
-  },
   methods: {
     toggleSideBar() {
       this.$store.commit('sidebar/' + TOGGLE_SIDEBAR)
