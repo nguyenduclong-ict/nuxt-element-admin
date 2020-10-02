@@ -1,7 +1,7 @@
 {
   "name": "nuxt-element-admin",
   "short_name": "nuxt-element-admin",
-  "description": "Element UI with nuxtjs",
+  "description": "Admin dashboard with nuxtjs + element ui, support ssr, reponsive mobile...",
   "icons": [
     {
       "src": "/nuxt-element-admin/_nuxt/icons/icon_64x64.5f6a36.png",
