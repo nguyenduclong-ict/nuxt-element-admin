@@ -53,6 +53,7 @@
 <script>
 import dayjs from '~/lib/utils/external/dayjs'
 import BoxCard from '~/components/Dashboard/BoxCard'
+import { createGradient } from '~/lib/utils'
 export default {
   components: { BoxCard },
   data() {
@@ -72,17 +73,8 @@ export default {
     }
   },
   mounted() {
-    const canvas = document.createElement('canvas')
-    this.gradient = canvas.getContext('2d').createLinearGradient(0, 0, 0, 450)
-    this.gradient2 = canvas.getContext('2d').createLinearGradient(0, 0, 0, 450)
-
-    this.gradient.addColorStop(0, 'rgba(255, 0,0, 0.5)')
-    this.gradient.addColorStop(0.5, 'rgba(255, 0, 0, 0.25)')
-    this.gradient.addColorStop(1, 'rgba(255, 0, 0, 0)')
-
-    this.gradient2.addColorStop(0, 'rgba(0, 231, 255, 0.9)')
-    this.gradient2.addColorStop(0.5, 'rgba(0, 231, 255, 0.25)')
-    this.gradient2.addColorStop(1, 'rgba(0, 231, 255, 0)')
+    this.gradient = createGradient()
+    this.gradient2 = createGradient('#f56c6c')
     this.fillData()
   },
   methods: {

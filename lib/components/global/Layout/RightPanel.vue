@@ -106,7 +106,7 @@ export default {
   height: 48px;
   position: fixed;
   right: -24px;
-  top: 50%;
+  bottom: 10%;
   transform: translateY(-50%);
   text-align: center;
   font-size: 24px;

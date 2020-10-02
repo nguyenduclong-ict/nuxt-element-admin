@@ -8,7 +8,18 @@
         @toggleClick="toggleSideBar"
       />
       <breadcrumb />
+
       <right-menu :items="rightMenu" />
+      <span class="nav-button float-right" @click="toggleFullscreen">
+        <icon :name="isFullscreen ? 'exit-fullscreen' : 'fullscreen'" />
+      </span>
+      <a
+        href="https://github.com/nguyenduclong-ict/nuxt-element-admin"
+        class="nav-button float-right"
+        target="_blank"
+      >
+        <icon name="github" />
+      </a>
     </div>
     <TagsView v-if="_hasTagView" />
   </div>
@@ -21,6 +32,11 @@ import { get, isNil } from '~/lib/utils/external/lodash'
 export default {
   props: {
     hasTagsView: Boolean,
+  },
+  data() {
+    return {
+      isFullscreen: false,
+    }
   },
   computed: {
     ...mapState(['sidebar', 'navbar', 'app']),
@@ -41,6 +57,13 @@ export default {
       ]
     },
   },
+  mounted() {
+    this.isFullscreen = !!(
+      document.exitFullscreen ||
+      document.webkitExitFullscreen ||
+      document.msExitFullscreen
+    )
+  },
   methods: {
     toggleSideBar() {
       this.$store.commit('sidebar/' + TOGGLE_SIDEBAR)
@@ -51,6 +74,44 @@ export default {
     },
     itemClick(handle) {
       if (handle) handle()
+    },
+    toggleFullscreen() {
+      if (this.isFullscreen) {
+        this.closeFullscreen()
+      } else {
+        this.openFullscreen()
+      }
+    },
+    openFullscreen() {
+      const elem = document.documentElement
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen()
+      } else if (elem.mozRequestFullScreen) {
+        /* Firefox */
+        elem.mozRequestFullScreen()
+      } else if (elem.webkitRequestFullscreen) {
+        /* Chrome, Safari and Opera */
+        elem.webkitRequestFullscreen()
+      } else if (elem.msRequestFullscreen) {
+        /* IE/Edge */
+        elem.msRequestFullscreen()
+      }
+      this.isFullscreen = true
+    },
+    closeFullscreen() {
+      if (document.exitFullscreen) {
+        document.exitFullscreen()
+      } else if (document.mozCancelFullScreen) {
+        /* Firefox */
+        document.mozCancelFullScreen()
+      } else if (document.webkitExitFullscreen) {
+        /* Chrome, Safari and Opera */
+        document.webkitExitFullscreen()
+      } else if (document.msExitFullscreen) {
+        /* IE/Edge */
+        document.msExitFullscreen()
+      }
+      this.isFullscreen = false
     },
   },
 }
@@ -91,7 +152,9 @@ export default {
     box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
   }
 
-  .hamburger-container {
+  .hamburger-container,
+  .nav-button {
+    padding: 0 15px;
     line-height: 46px;
     height: 100%;
     float: left;
@@ -99,9 +162,17 @@ export default {
     transition: background 0.3s;
     -webkit-tap-highlight-color: transparent;
 
+    [class*='-icon'] {
+      font-size: 20px;
+    }
     &:hover {
       background: rgba(0, 0, 0, 0.025);
     }
+  }
+
+  .nav-button {
+    line-height: 50px;
+    min-width: 50px;
   }
 
   .breadcrumb-container {

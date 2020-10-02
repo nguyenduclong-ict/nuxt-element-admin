@@ -160,6 +160,15 @@ h5 {
   }
 }
 
+
+.float-right  {
+  float: right !important;
+}
+
+.float-left  {
+  float: left !important;
+}
+
 // Border =================================================
 .border {
   border: solid 1px $border-color-base;
