@@ -1,13 +1,13 @@
 <template>
   <router-link v-if="!item.children" :to="item.path" class="menu-item">
     <el-menu-item :index="item.path" @click="handleClick">
-      <sidebar-icon v-if="item.icon" :icon="item.icon" />
+      <icon v-if="item.icon" :name="item.icon" />
       <span slot="title">{{ item.title }}</span>
     </el-menu-item>
   </router-link>
   <el-submenu v-else ref="subMenu" :index="item.key">
     <template slot="title">
-      <sidebar-icon v-if="item.icon" :icon="item.icon" />
+      <icon v-if="item.icon" :name="item.icon" />
       <span class="text">{{ item.title }}</span>
     </template>
 

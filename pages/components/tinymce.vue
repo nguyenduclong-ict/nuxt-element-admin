@@ -1,12 +1,17 @@
 <template>
   <el-main>
-    <tinymce />
+    <tinymce v-model="text" />
   </el-main>
 </template>
 
 <script>
 export default {
   meta: {},
+  data() {
+    return {
+      text: 'text',
+    }
+  },
 }
 </script>
 

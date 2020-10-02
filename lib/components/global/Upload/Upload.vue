@@ -22,6 +22,7 @@
     <el-dialog
       :visible.sync="isShowPreview"
       custom-class="upload-preview-dialog"
+      append-to-body
     >
       <app-image :data="previewItem"></app-image>
       <el-form
@@ -157,6 +158,11 @@ export default {
 </script>
 
 <style lang="scss">
+.el-form-item__content .upload {
+  display: inline-block;
+  width: 100%;
+}
+
 .upload {
   .el-upload-list__item,
   .el-upload--picture-card {

@@ -12,6 +12,7 @@
 
 <script>
 import { createUniqueString } from '~/lib/utils'
+import { get } from '~/lib/utils/external/lodash'
 export default {
   name: 'UploadSingle',
   props: {
@@ -32,9 +33,11 @@ export default {
   computed: {
     cValue() {
       return [this.value]
-        .filter((item) => !!item)
+        .filter((item) =>
+          typeof item === 'string' ? !!item : get(item, 'url')
+        )
         .map((item) => {
-          item = item === 'object' ? item : { url: item }
+          item = this.type === 'object' ? item : { url: item }
           item.uid = item.uid || this.uid
           return item
         })

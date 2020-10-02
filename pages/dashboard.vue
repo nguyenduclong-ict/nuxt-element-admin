@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import dayjs from '~/lib/utils/dayjs'
+import dayjs from '~/lib/utils/external/dayjs'
 import BoxCard from '~/components/Dashboard/BoxCard'
 export default {
   components: { BoxCard },

@@ -8,6 +8,7 @@
         <img :src="avatar" class="user-avatar" />
         <i class="el-icon-caret-bottom" />
       </div>
+
       <el-dropdown-menu v-if="items" slot="dropdown">
         <template v-for="item in items">
           <router-link
@@ -61,10 +62,6 @@ export default {
     },
   },
   methods: {
-    logout() {
-      console.log('logout')
-      this.$store.dispatch('logout')
-    },
     itemClick(handle) {
       if (handle) handle()
     },
