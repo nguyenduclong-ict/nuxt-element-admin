@@ -63,6 +63,7 @@ export default {
         language: 'en',
         height: this.height,
         body_class: 'panel-body',
+        content_css: '/css/tinymce.css',
         object_resizing: false,
         toolbar: this.toolbar.length > 0 ? this.toolbar : toolbar,
         menubar: this.menubar,
@@ -91,16 +92,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.tinymce-container {
-  position: relative;
-
-  .upload-button {
-    z-index: 2000;
-    position: absolute;
-    top: 6px;
-    right: 6px;
-  }
-}
-</style>
