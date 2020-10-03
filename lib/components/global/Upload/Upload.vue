@@ -141,7 +141,8 @@ export default {
       this.queue.forEach((file) => {
         if (this.type === 'object') {
           const { response } = file
-          file.url = this.value.push({
+          file.url = response.url
+          this.value.push({
             ...response,
             url: response.url,
             alt: response.alt,
