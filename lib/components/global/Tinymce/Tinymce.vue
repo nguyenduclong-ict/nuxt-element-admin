@@ -1,21 +1,32 @@
 <template>
-  <div :id="id" class="tinymce-container">
+  <div class="tinymce-container">
     <editor
       :value="value"
       :api-key="apiKey"
       :init="init"
       @input="$emit('input', $event)"
     ></editor>
-    <el-button
-      v-if="editor"
-      class="upload-button"
-      size="mini"
-      type="primary"
-      icon="el-icon-upload"
-    ></el-button>
+    <el-dialog title="Upload Image" :visible.sync="showUpload" append-to-body>
+      <el-row :gutter="12">
+        <el-col :md="12">
+          <Dropzone v-model="tmpImage" type="object" />
+        </el-col>
+        <el-col :md="12">
+          <app-image
+            v-for="img in tmpImage"
+            :key="img.uid"
+            :data="img"
+            style="width: 128px; height: 128px; object-fit: contain"
+          ></app-image>
+        </el-col>
+      </el-row>
 
-    <el-dialog title="Upload Image" :visible.sync="showUpload">
-      <Dropzone />
+      <span slot="footer">
+        <el-button @click="handleCancelImageUpload">Hủy</el-button>
+        <el-button type="primary" :limit="1" @click="handleInsertImage">
+          Thêm
+        </el-button>
+      </span>
     </el-dialog>
   </div>
 </template>
@@ -61,7 +72,10 @@ export default {
       apiKey:
         process.env.TINYMCE_KEY ||
         '3yt64d5qdxbws6vnlpysi905awwqebibbw6x2j3j0burkfe2',
+      tinymceId: this.id,
+      tmpImage: [],
       init: {
+        selector: `#${this.tinymceId}`,
         language: 'en',
         height: this.height,
         body_class: 'panel-body',
@@ -88,9 +102,27 @@ export default {
               this.showUpload = true
             },
           })
+          this.editor = editor
         },
       },
     }
+  },
+  methods: {
+    handleCancelImageUpload() {
+      this.showUpload = false
+    },
+    handleInsertImage() {
+      const arr = this.tmpImage
+      arr.forEach((v) =>
+        this.editor.insertContent(
+          `<img src="${v.url}" alt="${v.alt}" title="${v.title}" />`
+        )
+      )
+      this.$nextTick(() => {
+        this.tmpImage = []
+        this.showUpload = false
+      })
+    },
   },
 }
 </script>
