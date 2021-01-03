@@ -12,15 +12,15 @@
         <h3 class="title">Đăng nhập</h3>
       </div>
 
-      <el-form-item prop="username">
+      <el-form-item prop="email">
         <span class="svg-container">
           <svg-icon name="user" />
         </span>
         <el-input
-          ref="username"
-          v-model="loginForm.username"
-          placeholder="Username"
-          name="username"
+          ref="email"
+          v-model="loginForm.email"
+          placeholder="email"
+          name="email"
           type="text"
           tabindex="1"
           autocomplete="on"
@@ -82,11 +82,11 @@ export default {
     }
     return {
       loginForm: {
-        username: 'admin',
-        password: '111111',
+        email: 'demo@hotmail.com',
+        password: '123456',
       },
       loginRules: {
-        username: [{ required: true, trigger: 'blur' }],
+        email: [{ type: 'email', trigger: 'blur' }],
         password: [
           { required: true, trigger: 'blur', validator: validatePassword },
         ],
@@ -115,8 +115,8 @@ export default {
     // window.addEventListener('storage', this.afterQRScan)
   },
   mounted() {
-    if (this.loginForm.username === '') {
-      this.$refs.username.focus()
+    if (this.loginForm.email === '') {
+      this.$refs.email.focus()
     } else if (this.loginForm.password === '') {
       this.$refs.password.focus()
     }
@@ -140,17 +140,16 @@ export default {
       })
     },
     handleLogin() {
-      this.$refs.loginForm.validate((valid) => {
+      this.$refs.loginForm.validate(async (valid) => {
         if (valid) {
           this.loading = true
-          this.$store
-            .dispatch('login', this.loginForm)
-            .then(() => {
-              this.loading = false
+          try {
+            const loginResponse = await this.$auth.loginWith('firebase', {
+              data: this.loginForm,
             })
-            .catch(() => {
-              this.loading = false
-            })
+            console.log(loginResponse)
+          } catch (error) {}
+          this.loading = false
         } else {
           return false
         }

@@ -1,3 +1,5 @@
+import Cookies from 'js-cookie'
+
 export default {
   env: {
     API_URL: process.env.API_URL,
@@ -8,11 +10,7 @@ export default {
   pageTransition: {
     name: 'fade-transform',
   },
-  /*
-   ** Nuxt rendering mode
-   ** See https://nuxtjs.org/api/configuration-mode
-   */
-  mode: 'spa',
+  ssr: false,
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
@@ -75,10 +73,9 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/auth',
+    '@nuxtjs/auth-next',
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
-    // Doc: https://github.com/nuxt/content
     '@nuxtjs/svg-sprite',
   ],
   svgSprite: {
@@ -95,8 +92,10 @@ export default {
   auth: {
     strategies: {
       firebase: {
+        scheme: '~/lib/scheme/firebase',
         token: {
           property: 'idToken',
+          type: false,
         },
         user: {
           property: 'user',
@@ -110,8 +109,17 @@ export default {
               process.env.FIREBASE_API_KEY,
             method: 'post',
           },
-          logout: { url: '/api/auth/logout', method: 'post' },
-          user: { url: '/api/auth/user', method: 'get' },
+          logout: {
+            url: 'https://jsonplaceholder.typicode.com/todos/1',
+            method: 'get',
+          },
+          user: {
+            url:
+              process.env.FIREBASE_REST +
+              '/accounts:lookup?key=' +
+              process.env.FIREBASE_API_KEY,
+            method: 'post',
+          },
         },
       },
     },

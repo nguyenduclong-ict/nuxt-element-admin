@@ -1282,6 +1282,21 @@
     webpack-node-externals "^2.5.2"
     webpackbar "^4.0.0"
 
+"@nuxtjs/auth-next@5.0.0-1608568767.2fe2217":
+  version "5.0.0-1608568767.2fe2217"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/auth-next/-/auth-next-5.0.0-1608568767.2fe2217.tgz#2e87df29cedab5037ef1fe63df151aad1a628dae"
+  integrity sha512-e75XSLqCXwOshi4uRPai8YKUGlJa3NUqJRVk2jhHXFmIzF7IZH9VJoS5HrT8R7vFPsfAvlAXIQeDlj1P5bfXxw==
+  dependencies:
+    "@nuxtjs/axios" "^5.12.4"
+    axios "^0.21.0"
+    body-parser "^1.19.0"
+    consola "^2.15.0"
+    cookie "^0.4.1"
+    defu "^3.2.2"
+    hasha "^5.2.2"
+    jwt-decode "^3.1.2"
+    requrl "^3.0.2"
+
 "@nuxtjs/auth@^4.9.1":
   version "4.9.1"
   resolved "https://registry.yarnpkg.com/@nuxtjs/auth/-/auth-4.9.1.tgz#8827e4d23bf901711423434ad4a7073a8fc51603"
@@ -1296,7 +1311,7 @@
     lodash "^4.17.15"
     nanoid "^2.1.11"
 
-"@nuxtjs/axios@^5.12.2", "@nuxtjs/axios@^5.9.5":
+"@nuxtjs/axios@^5.12.4", "@nuxtjs/axios@^5.9.5":
   version "5.12.4"
   resolved "https://registry.yarnpkg.com/@nuxtjs/axios/-/axios-5.12.4.tgz#596ed88441aaedc5e74349f34fff2a462b02d01c"
   integrity sha512-NKDIkrhtteOwC163Qlglw7YyjWHfLecpC/wXax4Z2tVVDlYnvSBa1KGoH9AnDY30lfvi0gjBKWCcTnUY8PaWDA==
@@ -3439,7 +3454,7 @@ cookie@^0.3.1:
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
   integrity sha1-5+Ch+e9DtMi6klxcWpboBtFoc7s=
 
-cookie@^0.4.0:
+cookie@^0.4.0, cookie@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.4.1.tgz#afd713fe26ebd21ba95ceb61f9a8116e50a537d1"
   integrity sha512-ZwrFkGJxUR3EIoXtO+yVE69Eb7KlixbaeAWfBQB9vVsNn/o+Yw69gBWSSDK825hQNdN+wF8zELf3dFNl/kxkUA==
@@ -6587,6 +6602,11 @@ jws@^3.2.2:
     jwa "^1.4.1"
     safe-buffer "^5.0.1"
 
+jwt-decode@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/jwt-decode/-/jwt-decode-3.1.2.tgz#3fb319f3675a2df0c2895c8f5e9fa4b67b04ed59"
+  integrity sha512-UfpWE/VZn0iP50d8cz9NrZLM9lSWhcJ+0Gt/nm4by88UL+J1SiKN8/5dkjMmbEzwL2CAe+67GsegCbIKtbp75A==
+
 keyv@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/keyv/-/keyv-3.1.0.tgz#ecc228486f69991e49e9476485a5be1e8fc5c4d9"
@@ -9597,6 +9617,11 @@ requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
+
+requrl@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/requrl/-/requrl-3.0.2.tgz#d376104193b02a2d874dde68454c2db2dfeb0fac"
+  integrity sha512-f3gjR6d8MhOpn46PP+DSJywbmxi95fxQm3coXBFwognjFLla9X6tr8BdNyaIKNOEkaRbRcm0/zYAqN19N1oyhg==
 
 reserved-words@^0.1.2:
   version "0.1.2"
