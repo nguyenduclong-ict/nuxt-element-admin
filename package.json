@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "mock": "nodemon mock",
     "dev:all": "concurrently -n dev,mock \"yarn dev\" \"yarn mock\"",
     "build": "nuxt build",
     "start": "nuxt start",

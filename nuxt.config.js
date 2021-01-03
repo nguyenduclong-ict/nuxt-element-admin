@@ -94,22 +94,24 @@ export default {
    */
   auth: {
     strategies: {
-      local: {
+      firebase: {
+        token: {
+          property: 'idToken',
+        },
+        user: {
+          property: 'user',
+          autoFetch: true,
+        },
         endpoints: {
           login: {
-            url: '/auth/login',
-            method: 'post',
-            propertyName: 'token',
-          },
-          logout: {
-            url: '/auth/logout',
+            url:
+              process.env.FIREBASE_REST +
+              '/accounts:signInWithPassword?key=' +
+              process.env.FIREBASE_API_KEY,
             method: 'post',
           },
-          user: {
-            url: '/auth/me',
-            method: 'get',
-            propertyName: 'user',
-          },
+          logout: { url: '/api/auth/logout', method: 'post' },
+          user: { url: '/api/auth/user', method: 'get' },
         },
       },
     },
