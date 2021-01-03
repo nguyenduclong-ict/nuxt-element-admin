@@ -1,5 +1,3 @@
-import Cookies from 'js-cookie'
-
 export default {
   env: {
     API_URL: process.env.API_URL,
@@ -101,7 +99,6 @@ export default {
           type: false,
         },
         user: {
-          property: 'user',
           autoFetch: true,
         },
         endpoints: {
