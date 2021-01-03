@@ -49,6 +49,5 @@
   "start_url": "/nuxt-element-admin/?standalone=true",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "black",
   "lang": "en"
 }
