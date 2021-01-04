@@ -51,7 +51,8 @@ export default {
         {
           text:
             get(this.$auth, 'user.info.name') ||
-            get(this.$auth, 'user.username'),
+            get(this.$auth, 'user.username') ||
+            get(this.$auth, 'user.email'),
         },
         { text: 'Logout', click: this.logout, divided: true },
       ]
@@ -61,9 +62,8 @@ export default {
     toggleSideBar() {
       this.$store.commit('sidebar/' + TOGGLE_SIDEBAR)
     },
-    async logout() {
-      await this.$store.dispatch('logout')
-      this.$router.go()
+    logout() {
+      this.$auth.logout()
     },
     itemClick(handle) {
       if (handle) handle()

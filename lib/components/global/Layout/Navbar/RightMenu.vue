@@ -5,7 +5,12 @@
       trigger="click"
     >
       <div class="avatar-wrapper">
-        <img :src="avatar" class="user-avatar" />
+        <img v-if="avatar" :src="avatar" class="user-avatar" />
+        <img
+          v-else
+          class="user-avatar"
+          src="~/assets/images/default-avatar.gif"
+        />
         <i class="el-icon-caret-bottom" />
       </div>
 
@@ -51,14 +56,13 @@
 <script>
 import { mapState } from 'vuex'
 export default {
-  components: {},
   props: {
     items: { type: Array },
   },
   computed: {
     ...mapState(['navbar']),
     avatar() {
-      return this.$auth.user.avatar || '/images/default-avatar.gif'
+      return this.$auth.user.avatar
     },
   },
   methods: {

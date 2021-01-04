@@ -31,9 +31,6 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-  static: {
-    prefix: false,
-  },
   /*
    ** Global CSS
    */
@@ -130,7 +127,6 @@ export default {
   },
   router: {
     middleware: ['auth'],
-    base: process.env.DEPLOY_MODE === 'github' ? '/nuxt-element-admin/' : '/',
   },
   // serverMiddleware: ['~/mock'],
   /*

@@ -1,6 +1,6 @@
 <script>
 import { Pie, mixins } from 'vue-chartjs'
-import { defaultsDeep } from '~/lib/utils/external/lodash'
+import _ from '~/lib/utils/external/lodash'
 const { reactiveProp } = mixins
 
 export default {
@@ -9,7 +9,7 @@ export default {
   props: ['options'],
   computed: {
     _options() {
-      return defaultsDeep(this.options, {
+      return _.defaultsDeep(this.options, {
         responsive: true,
         maintainAspectRatio: false,
       })

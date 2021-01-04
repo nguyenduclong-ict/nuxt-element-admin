@@ -21,5 +21,6 @@ module.exports = {
     'vue/no-unused-vars': 0,
     'vue/require-default-prop': 0,
     'vue/require-prop-types': 0,
+    'import/no-named-as-default-member': 0,
   },
 }

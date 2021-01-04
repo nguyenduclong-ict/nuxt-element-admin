@@ -14,13 +14,6 @@ export const mutations = {
 }
 
 export const actions = {
-  async login({ state }, data) {
-    await this.$auth.loginWith('firebase', { data })
-    return { user: this.$auth.user, token: this.$auth.getToken() }
-  },
-  logout() {
-    return this.$auth.logout()
-  },
   nuxtServerInit({ commit }, { req }) {
     // Init defalut config app
     const isMobile = isMobileAgent(req.headers['user-agent'])
