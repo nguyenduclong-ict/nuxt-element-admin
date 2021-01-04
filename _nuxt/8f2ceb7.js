@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{849:function(e,n,t){"use strict";t.r(n);var c={asyncData:function(e){(0,e.redirect)("/dashboard")}},r=t(3),component=Object(r.a)(c,(function(){var e=this.$createElement,n=this._self._c||e;return n("el-main",[n("h1",[this._v("Index Page")])])}),[],!1,null,"14bac0cc",null);n.default=component.exports}}]);
